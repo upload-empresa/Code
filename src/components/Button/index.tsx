@@ -28,14 +28,13 @@ export function ButtonIndex({ textButton, href, w }: ButtonIndexProps) {
 
 interface ButtonLoginProps {
     textButton: string
-    href: string
+    onClick: any
 }
 
-export function ButtonLogin({ textButton, href }: ButtonLoginProps) {
+export function ButtonLogin({ textButton, onClick }: ButtonLoginProps) {
     return (
         <Button
-            as={NextLink}
-            href={href}
+            onClick={onClick}
             bg={"yellow"}
             color={"#000"}
             fontSize={"24px"}

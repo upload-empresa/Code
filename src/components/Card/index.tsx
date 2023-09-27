@@ -152,9 +152,10 @@ interface CardLoginProps {
     id2: any
     type1: any
     type2: any
+    onClick: any
 }
 
-export function CardLogin({ value1, id1, onChange1, value2, id2, onChange2, type1, type2 }: CardLoginProps) {
+export function CardLogin({ value1, id1, onChange1, value2, id2, onChange2, type1, type2, onClick }: CardLoginProps) {
     return (
         <Stack
             borderRadius={"16px"}
@@ -182,7 +183,7 @@ export function CardLogin({ value1, id1, onChange1, value2, id2, onChange2, type
                     <InputIndex label={"Email"} type={type1} w={"30%"} placeholder={"Digite aqui o email"} value={value1} onChange={onChange1} id={id1} />
                     <InputIndex label={"Senha"} type={type2} w={"30%"} placeholder={"Digite aqui a senha"} value={value2} onChange={onChange2} id={id2} />
                 </HStack>
-                <ButtonLogin textButton={"Enviar"} href={"#"} />
+                <ButtonLogin textButton={"Enviar"} onClick={onClick} />
             </Stack>
         </Stack>
     )

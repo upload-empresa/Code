@@ -47,7 +47,7 @@ export default function Login() {
             p={10}
             align={"center"}
         >
-            <CardLogin value1={email} onChange1={(e: any) => setEmail(e.target.value)} id1={email} value2={undefined} onChange2={(e: any) => setPassword(e.target.value)} id2={password} type1={email} type2={password} />
+            <CardLogin value1={email} onChange1={(e: any) => setEmail(e.target.value)} id1={email} value2={password} onChange2={(e: any) => setPassword(e.target.value)} id2={password} type1={email} type2={password} onClick={login} />
         </Stack>
     )
 }
