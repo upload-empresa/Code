@@ -1,0 +1,61 @@
+import prisma from '@/libs/prismadb'
+import NextAuth, { AuthOptions } from 'next-auth'
+import Credentials from "next-auth/providers/credentials"
+import { compare } from 'bcrypt'
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+
+export const authOptions: AuthOptions = {
+    providers: [
+        Credentials({
+            id: 'credentials',
+            name: 'credentials',
+            credentials: {
+                email: {
+                    label: 'Email',
+                    type: 'text'
+                },
+                password: {
+                    label: 'Password',
+                    type: 'password'
+                }
+            },
+
+            async authorize(credentials) {
+                if (!credentials?.email || !credentials?.password) {
+                    throw new Error('Email ou senha são necessários')
+                }
+
+                const user = await prisma.user.findUnique({
+                    where: {
+                        email: credentials.email
+                    }
+                })
+
+                if (!user || !user.hashedPassword) {
+                    throw new Error('Email does not exist');
+                }
+
+
+                const isCorretPassword = await compare(
+                    credentials.password,
+                    user.hashedPassword
+                )
+
+                if (!isCorretPassword) {
+                    throw new Error('Senha incorreta')
+                }
+                return user
+            }
+        })
+    ],
+    pages: {
+        signIn: '/auth'
+    },
+    debug: process.env.NODE_ENV === 'development',
+    adapter: PrismaAdapter(prisma),
+    session: { strategy: 'jwt' },
+    jwt: { secret: process.env.NEXTAUTH_JWT_SECRET },
+    secret: process.env.NEXTAUTH_SECRET
+}
+
+export default NextAuth(authOptions)
