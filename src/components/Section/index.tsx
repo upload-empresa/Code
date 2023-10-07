@@ -108,7 +108,26 @@ export function SectionPurple({ title, src1, w1, alt1, width1, height1, text, al
     )
 }
 
-export function SectionForms() {
+interface SectionFormsProps {
+    type5: any
+    value1: any
+    value2: any
+    value3: any
+    value4: any
+    value5: any
+    onChange1: any
+    onChange2: any
+    onChange3: any
+    onChange4: any
+    onChange5: any
+    id1: any
+    id2: any
+    id3: any
+    id4: any
+    id5: any
+}
+
+export function SectionForms({ value1, value2, value3, value4, onChange1, onChange2, onChange3, onChange4, id1, id2, id3, id4, type5, onChange5, id5, value5 }: SectionFormsProps) {
     return (
         <Stack
             as="section"
@@ -118,13 +137,13 @@ export function SectionForms() {
                 spacing={10}
                 w={"100%"}
             >
-                <InputIndex label={"Nome"} type={"name"} w={"22%"} placeholder={""} />
-                <InputIndex label={"Sobrenome"} type={"name"} w={"22%"} placeholder={""} />
-                <InputIndex label={"Email"} type={"email"} w={"22%"} placeholder={""} />
-                <InputIndex label={"Telefone"} type={"phone"} w={"22%"} placeholder={""} />
+                <InputIndex label={"Nome"} type={"name"} w={"22%"} placeholder={""} value={value1} onChange={onChange1} id={id1} />
+                <InputIndex label={"Sobrenome"} type={"lastname"} w={"22%"} placeholder={""} value={value2} onChange={onChange2} id={id2} />
+                <InputIndex label={"Email"} type={"email"} w={"22%"} placeholder={""} value={value3} onChange={onChange3} id={id3} />
+                <InputIndex label={"Telefone"} type={"number"} w={"22%"} placeholder={""} value={value4} onChange={onChange4} id={id4} />
             </HStack>
-            <Textarea bg={"white"} />
-            <ButtonIndex textButton={"Enviar"} href={"#"} w={"15%"} />
+            <Textarea typeof={type5} value={value5} onChange={onChange5} id={id5} bg={"white"} />
+            <ButtonIndex textButton={"Enviar"} w={"15%"} />
         </Stack>
     )
 }
@@ -176,11 +195,11 @@ export function SectionPrimaryADM() {
                 spacing={10}
                 w={"100%"}
             >
-                <InputIndex label={"Autor"} type={"name"} w={"29%"} placeholder={""} />
-                <InputIndex label={"Imagem do Autor"} type={""} w={"29%"} placeholder={""} />
-                <InputIndex label={"Data"} type={"date"} w={"29%"} placeholder={""} />
+                <InputIndex label={"Autor"} type={"name"} w={"29%"} placeholder={""} value={undefined} onChange={undefined} id={undefined} />
+                <InputIndex label={"Imagem do Autor"} type={""} w={"29%"} placeholder={""} value={undefined} onChange={undefined} id={undefined} />
+                <InputIndex label={"Data"} type={"date"} w={"29%"} placeholder={""} value={undefined} onChange={undefined} id={undefined} />
             </HStack>
-            <InputIndex label={"Título"} type={"name"} w={"20%"} placeholder={""} />
+            <InputIndex label={"Título"} type={"name"} w={"20%"} placeholder={""} value={undefined} onChange={undefined} id={undefined} />
         </Stack>
 
     )

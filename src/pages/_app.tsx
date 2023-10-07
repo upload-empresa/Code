@@ -4,13 +4,16 @@ import type { AppProps } from 'next/app'
 import { theme } from '@/styles/theme'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { SessionProvider } from "next-auth/react"
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </ChakraProvider>
+    <SessionProvider session={session}>
+      <ChakraProvider theme={theme}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </ChakraProvider>
+    </SessionProvider>
   )
 }

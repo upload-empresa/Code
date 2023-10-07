@@ -3,15 +3,13 @@ import NextLink from 'next/link'
 
 interface ButtonIndexProps {
     textButton: string
-    href: string
     w: string
 }
 
-export function ButtonIndex({ textButton, href, w }: ButtonIndexProps) {
+export function ButtonIndex({ textButton, w }: ButtonIndexProps) {
     return (
         <Button
-            as={NextLink}
-            href={href}
+            type="submit"
             bg={"yellow"}
             color={"#000"}
             fontSize={"20px"}

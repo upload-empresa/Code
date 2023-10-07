@@ -24,7 +24,7 @@ export function ArticleIndexPrimary() {
                     <TitleIndex color={"#fff"} text={"Transforme a sua ideia em um software"} w={"70%"} />
                     <TextServices text={"Tecnologia e inovação para experiências digitais excepcionais. Desenvolvimento web sob medida para impulsionar seu sucesso online. Junte-se a nós e construa o futuro digital!"} size={"20px"} color={"#fff"} />
                 </Stack>
-                <ButtonIndex textButton={"Agende uma reunião"} href={"#"} w={"35%"} />
+                <ButtonIndex textButton={"Agende uma reunião"} w={"35%"} />
             </Stack>
         </Stack>
     )
@@ -57,8 +57,25 @@ export function ArticleFaleConosco() {
         </Stack>
     )
 }
-
-export function ArticleContato() {
+interface ArticleContatoProps {
+    type5: any
+    value1: any
+    value2: any
+    value3: any
+    value4: any
+    value5: any
+    onChange1: any
+    onChange2: any
+    onChange3: any
+    onChange4: any
+    onChange5: any
+    id1: any
+    id2: any
+    id3: any
+    id4: any
+    id5: any
+}
+export function ArticleContato({ value1, value2, value3, value4, onChange1, onChange2, onChange3, onChange4, id1, id2, id3, id4, type5, onChange5, id5, value5 }: ArticleContatoProps) {
     return (
         <Stack
             as="article"
@@ -66,7 +83,7 @@ export function ArticleContato() {
             spacing={20}
         >
             <SectionIndexContato />
-            <SectionForms />
+            <SectionForms value1={value1} value2={value2} value3={value3} value4={value4} onChange1={onChange1} onChange2={onChange2} onChange3={onChange3} onChange4={onChange4} id1={id1} id2={id2} id3={id3} id4={id4} type5={type5} value5={value5} onChange5={onChange5} id5={id5} />
         </Stack>
     )
 }
