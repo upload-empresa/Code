@@ -1,7 +1,9 @@
 import { CardBlog } from "@/components/Card"
 import { Grid, GridItem, Stack } from "@chakra-ui/react"
+import usePosts from "@/hooks/usePostsList"
 
 export default function Blog() {
+    const { data: posts = [] } = usePosts();
     return (
         <Stack
             as="main"
@@ -15,33 +17,12 @@ export default function Blog() {
                 py={32}
                 px={16}
             >
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
+                {posts.map((post: any) => (
+                    <GridItem>
+                        <CardBlog data={post} />
+                    </GridItem>
+                ))}
 
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
-
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
-
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
-
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
-
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
-
-                <GridItem>
-                    <CardBlog />
-                </GridItem>
 
             </Grid>
 

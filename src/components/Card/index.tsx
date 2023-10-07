@@ -115,8 +115,10 @@ export function CardVectorE() {
 
     )
 }
-
-export function CardBlog() {
+interface CardBlogProps {
+    data: any
+}
+export function CardBlog({ data }: CardBlogProps) {
     return (
         <Stack
             borderRadius={"16px"}
@@ -137,8 +139,8 @@ export function CardBlog() {
                 boxShadow={"8px 6px 10px 0px #00000061"}
                 borderRadius={"0 0 16px 16px"}
             >
-                <TitleBlog title={"Lorem Ipsum"} fontSize={"24px"} />
-                <TextServices text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis fermentum convallis. Phasellus mattis, dui a ultrice."} size={"16px"} color={"#424040"} />
+                <TitleBlog title={data.title} fontSize={"24px"} />
+                <TextServices text={data.content} size={"16px"} color={"#424040"} />
             </Stack>
         </Stack>
     )
