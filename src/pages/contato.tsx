@@ -35,7 +35,7 @@ export default function Contato() {
             }
 
             toast({
-                title: `Sua mensgaem foi enviada com sucesso!`,
+                title: `Sua mensagem foi enviada com sucesso!`,
                 status: 'success',
                 isClosable: true
             })
